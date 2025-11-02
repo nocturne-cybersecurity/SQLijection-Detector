@@ -4,11 +4,11 @@ Framework de detección de anomalías en tiempo real para servidores Java y apli
 
 ## Características
 
-- 🕵️ Monitoreo en tiempo real de logs
-- 🔍 Detección de patrones sospechosos
-- ⚙️ Configuración basada en YAML/JSON
-- 🔔 Alertas por correo y webhooks
-- 🧩 Arquitectura modular
+-  Monitoreo en tiempo real de logs
+-  Detección de patrones sospechosos
+-  Configuración basada en YAML/JSON
+-  Alertas por correo y webhooks
+-  Arquitectura modular
 
 ## Requisitos
 
