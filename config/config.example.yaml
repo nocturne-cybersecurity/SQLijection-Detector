@@ -1,0 +1,64 @@
+# Configuración general de ShadowGuard
+
+# Configuración del sistema
+system:
+  log_level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_file: output/shadowguard.log
+  pid_file: /var/run/shadowguard.pid
+
+# Configuración de monitoreo
+monitoring:
+  log_paths:
+    - /var/log/tomcat/catalina.out
+    - /var/log/spring-boot/application.log
+  check_interval: 5  # segundos
+  max_file_size: 10485760  # 10MB
+
+# Reglas de detección
+detectors:
+  sql_injection:
+    enabled: true
+    patterns:
+      - "(?i)(?:select\s.*from|insert\s+into|update\s+\w+\s+set|delete\s+from)"
+      - "(?:'\s+(?:or|and)\s+[\w\d]+=[\w\d]|'\s*;\s*--)"
+    threshold: 3  # Número de coincidencias para activar la alerta
+    
+  path_traversal:
+    enabled: true
+    patterns:
+      - "(?:/\\.\\./|/\\.\\.\\)"
+      - "(?:%2e%2e%2f|%252e%252e%252f)"
+    
+  brute_force:
+    enabled: true
+    max_attempts: 5
+    time_window: 300  # segundos
+    
+  suspicious_ips:
+    enabled: true
+    threshold: 10  # Número de peticiones por minuto
+
+# Configuración de alertas
+alerts:
+  email:
+    enabled: false
+    smtp_server: smtp.example.com
+    smtp_port: 587
+    username: user@example.com
+    password: your_password
+    from: alerts@example.com
+    to:
+      - admin@example.com
+    
+  webhook:
+    enabled: true
+    url: https://hooks.slack.com/services/...
+    
+  console:
+    enabled: true
+    
+# Configuración de reportes
+reports:
+  enabled: true
+  output_dir: output/reports
+  keep_days: 30
