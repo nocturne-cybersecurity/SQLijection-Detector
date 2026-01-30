@@ -1,4 +1,4 @@
-# 🛡️ ShadowGuard
+# Detector de inyecciones
 
 Framework de detección de anomalías en tiempo real para servidores Java y aplicaciones web.
 
@@ -19,7 +19,7 @@ Framework de detección de anomalías en tiempo real para servidores Java y apli
 
 ```bash
 # Clonar el repositorio
-git clone [URL_DEL_REPOSITORIO]
+git clone https://github.com/nocturne-cybersecurity/SQLijection-Detector.git
 cd ShadowGuard
 
 # Instalar dependencias
